@@ -72,59 +72,7 @@ static void InsertData()
     }
 }
 
-// DropDatabase();
-// CreateDatabase();
+DropDatabase();
+CreateDatabase();
 
-// InsertData();
-using var dbContext = new ShopContext();
-//
-// var product = (from p in dbContext.products where p.ProductID == 3 select p).FirstOrDefault();
-// var e = dbContext.Entry(product);
-// e.Reference(p => p.Category).Load();
-// if (product != null)
-// {
-//     product.PrintInfo();
-// }
-// if (product.Category != null)
-// {
-//     Console.WriteLine($"{product.Category.Name} - {product.Category.Description}");
-//  }
-// else Console.WriteLine("Category == null");
-//
-// var category = (from c in dbContext.categories where c.CategoryID == 2 select c).FirstOrDefault();
-// if (category != null)
-// {
-//     Console.WriteLine($"{category.CategoryID} - {category.Name}");
-// }
-// if (category.Products != null)
-// {
-//     Console.WriteLine($"So san pham: {category.Products.Count()}");
-//     category.Products.ForEach(p => p.PrintInfo());
-// }
-// else Console.WriteLine("Products == null");
 
-// // Linq
-// // Find(pk)
-// var p = dbContext.products.Find(6);
-// p.PrintInfo();
-// price > 500
-// var products = from p in dbContext.products
-//                where p.Price >= 500
-//                select p;
-// products.ToList().ForEach(p => p.PrintInfo());
-// //
-// var products = from p in dbContext.products
-//                where p.Name.Contains("i")
-//                orderby p.Price descending
-//                select p;
-// products.Take(2).ToList().ForEach(p => p.PrintInfo());
-//
-var qr = from p in dbContext.products
-         join c in dbContext.categories on p.CateId equals c.CategoryID
-         select new
-         {
-             Ten = p.Name,
-             Danhmuc = c.Name,
-             Gia = p.Price
-         };
-qr.ToList().ForEach(p => Console.WriteLine(p));

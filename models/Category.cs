@@ -12,7 +12,8 @@ namespace EFcore
         public string Name { get; set; }
         [Column(TypeName = "ntext")]
         public string Description { get; set; }
-        //Colect Navigation
+        // Colect Navigation
         public virtual List<Product> Products { get; set; }
+        public CategoryDetail CategoryDetail { get; set; }
     }
 }
